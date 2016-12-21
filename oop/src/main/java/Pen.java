@@ -1,9 +1,9 @@
 import lombok.*;
 
 @AllArgsConstructor
-@Value
 @Builder
-public class Pen {
+@Value
+class Pen {
     private final int price;
     private final String producerName;
 
