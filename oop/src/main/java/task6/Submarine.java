@@ -11,7 +11,7 @@ public class Submarine {
         this.engine = new SubmarineEngine();
     }
 
-    protected void sail()
+    public void sail()
     {
         engine.startTheEngine();
         System.out.println("Атомная лодка успешно запущена в плавание!");
