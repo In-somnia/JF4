@@ -1,5 +1,11 @@
 rootProject.name = 'JF4'
 
-include 'intro'
-include 'oop'
+include 'intro',
+        'oop',
+        'strings',
+        'io',
+        'exceptions',
+        'threads'
+
+
 
