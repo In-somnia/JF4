@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transactions>
+    <transaction id="13476">
+        <date>9.02.2017</date>
+        <value>1000$</value>
+        <sender>77755544443333</sender>
+        <receiver>9999888877776666</receiver>
+        <state>Successful</state>
+    </transaction>
+    <transaction id="28569">
+        <date>8.02.2017</date>
+        <value>800$</value>
+        <sender>77755544443333</sender>
+        <receiver>1212111177779999</receiver>
+        <state>Successful</state>
+    </transaction>
+    <transaction id="34789">
+        <date>7.02.2017</date>
+        <value>750$</value>
+        <sender>77755544443333</sender>
+        <receiver>1212111177779999</receiver>
+        <state>Successful</state>
+    </transaction>
+    <transaction id="15870">
+        <date>7.02.2017</date>
+        <value>900$</value>
+        <sender>77755544443333</sender>
+        <receiver>9999888877776666</receiver>
+        <state>Successful</state>
+    </transaction>
+    <transaction id="60043">
+        <date>6.02.2017</date>
+        <value>1200$</value>
+        <sender>77755544443333</sender>
+        <receiver>9999888877776666</receiver>
+        <state>Successful</state>
+    </transaction>
+    <transaction id="51212">
+        <date>6.02.2017</date>
+        <value>790$</value>
+        <sender>77755544443333</sender>
+        <receiver>1212111177779999</receiver>
+        <state>Successful</state>
+    </transaction>
+    <transaction id="68490">
+        <date>5.02.2017</date>
+        <value>850$</value>
+        <sender>77755544443333</sender>
+        <receiver>9999888877776666</receiver>
+        <state>Successful</state>
+    </transaction>
+</transactions>
+
+
+
+
+
+
+
+
+
+
