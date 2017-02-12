@@ -1,4 +1,4 @@
-package task1;
+package task1.sync;
 
 
 import javax.xml.stream.XMLStreamException;
@@ -87,16 +87,36 @@ public class ParsingAndMethods {
             }
         }
     }
-    public static int checkBalance(String accountNumber, List<Account> listOfAccounts)
+    public static int checkBalance(String accountNumber, List<Account> listOfAccounts) throws NullPointerException
     {
         int balance = 0;
-        for (Account n : listOfAccounts)
+
+        if (accountIsAvailable(accountNumber, listOfAccounts))
         {
-            if (n.getAccountNumber().equals(accountNumber))
+            for (Account n : listOfAccounts)
             {
-                balance = n.getValue();
+                if (n.getAccountNumber().equals(accountNumber))
+                {
+                    balance = n.getValue();
+                }
             }
         }
+        else
+        {
+            throw new NullPointerException();
+        }
         return balance;
+    }
+    public static boolean accountIsAvailable(String accountNumber, List<Account> listOfAccounts)
+    {
+        boolean isAvailable = false;
+        for (Account m : listOfAccounts)
+        {
+            if (m.getAccountNumber().equals(accountNumber))
+            {
+                isAvailable = true;
+            }
+        }
+        return isAvailable;
     }
 }

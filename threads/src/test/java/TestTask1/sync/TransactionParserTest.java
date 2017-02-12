@@ -1,32 +1,28 @@
-package TestTask1;
+package TestTask1.sync;
 
-import task1.Account;
-import task1.DepositThread;
-import task1.Transaction;
-import task1.WithdrawalThread;
+import lombok.SneakyThrows;
+import task1.sync.*;
 
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import static task1.ParsingAndMethods.checkBalance;
-import static task1.ParsingAndMethods.process;
-import static task1.ParsingAndMethods.transactionSelector;
+import static task1.sync.ParsingAndMethods.checkBalance;
+import static task1.sync.ParsingAndMethods.process;
+import static task1.sync.ParsingAndMethods.transactionSelector;
 
 
 public class TransactionParserTest {
+@SneakyThrows
     public static void main(String[] args) throws FileNotFoundException {
 
         List<Account> listOfAccounts = new ArrayList<>();
-        listOfAccounts.add(new Account("77755544443333", "Иванов Иван",8000));
-        listOfAccounts.add(new Account("9999888877776666", "Петров Петр", 500));
-        listOfAccounts.add(new Account("1212111177779999", "Smith, Jack", 0));
+        listOfAccounts.add(new Account("77755544443333", 8000));
+        listOfAccounts.add(new Account("9999888877776666", 500));
+        listOfAccounts.add(new Account("1212111177779999", 0));
 
-        try {
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             InputStream input = new FileInputStream("C:/Users/Julia/IdeaProjects/JF4/threads/src/test/resources/transactions.xml");
             XMLStreamReader reader = inputFactory.createXMLStreamReader(input);
@@ -42,13 +38,9 @@ public class TransactionParserTest {
                 t1.start();
                 t2.start();
             }
-        } catch(XMLStreamException e)
-        {
-            e.printStackTrace();
-        }
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
+        BufferedReader strReader = new BufferedReader(new InputStreamReader(System.in));
+
             while(true)
             {
                 System.out.println("Выберите необходимое действие: ");
@@ -56,22 +48,23 @@ public class TransactionParserTest {
                 System.out.println("2 - Посмотреть исходящие транзакции: ");
                 System.out.println("3 - Проверить баланс: ");
                 System.out.println("0 - Выход из программы");
-                String choice = reader.readLine();
+                String choice = strReader.readLine();
                 switch(choice)
                 {
                     case "1":
                         System.out.println("Введите номер счета: ");
-                        String num = reader.readLine();
+                        String num = strReader.readLine();
                         Account currentAccount = null;
-                        for (Account x : listOfAccounts)
+
+                        if (ParsingAndMethods.accountIsAvailable(num, listOfAccounts))
                         {
-                            if (x.getAccountNumber().equals(num))
+                            for (Account x : listOfAccounts)
                             {
-                               currentAccount = x;
-                                break;
+                                if (x.getAccountNumber().equals(num))
+                                {
+                                    currentAccount = x;
+                                }
                             }
-                        }
-                        try {
                             //noinspection ConstantConditions
                             List<Transaction> currentTr = currentAccount.getInTransactions();
                             if (currentTr.size() == 0)
@@ -83,23 +76,26 @@ public class TransactionParserTest {
                                 System.out.printf("Date: %s, id: %d, Value: %s, Sender: %s, Receiver: %s, State: %s%n",
                                         t.getDate(), t.getId(), t.getValue(), t.getSender(), t.getReceiver(), t.getState());
                             }
-                        } catch (NullPointerException e) {
+                        }
+                        else
+                        {
                             System.out.println("Счет не найден!");
                         }
                         break;
                     case "2":
                         System.out.println("Введите номер счета: ");
-                        String accNumber = reader.readLine();
+                        String accNumber = strReader.readLine();
                         Account current = null;
-                        for (Account x : listOfAccounts)
+                        if (ParsingAndMethods.accountIsAvailable(accNumber, listOfAccounts))
                         {
-                            if (x.getAccountNumber().equals(accNumber))
+                            for (Account x : listOfAccounts)
                             {
-                                current = x;
-                                break;
+                                if (x.getAccountNumber().equals(accNumber))
+                                {
+                                    current = x;
+                                    break;
+                                }
                             }
-                        }
-                        try {
                             //noinspection ConstantConditions
                             List<Transaction> currentTrans = current.getOutTransactions();
                             if (currentTrans.size() == 0)
@@ -111,13 +107,15 @@ public class TransactionParserTest {
                                 System.out.printf("Date: %s, id: %d, Value: %s, Sender: %s, Receiver: %s, State: %s%n",
                                         t.getDate(), t.getId(), t.getValue(), t.getSender(), t.getReceiver(), t.getState());
                             }
-                        } catch (NullPointerException e) {
+                        }
+                        else
+                        {
                             System.out.println("Счет не найден!");
                         }
                         break;
                     case "3":
                         System.out.println("Введите номер счета: ");
-                        String number = reader.readLine();
+                        String number = strReader.readLine();
                         try {
                             System.out.printf("Баланс счета номер %s составляет: %d$%n", number, checkBalance(number, listOfAccounts));
                         } catch (NullPointerException e) {
@@ -131,9 +129,5 @@ public class TransactionParserTest {
                         break;
                 }
             }
-        } catch(IOException e)
-        {
-            e.printStackTrace();
-        }
     }
 }
