@@ -10,8 +10,7 @@ import static java.lang.Integer.parseInt;
 import static javax.xml.stream.XMLStreamConstants.*;
 
 
-
-public class TransactionParser {
+public class ParsingAndMethods {
 
     public static List<Transaction> process(XMLStreamReader reader) throws XMLStreamException
     {
@@ -44,7 +43,7 @@ public class TransactionParser {
                             break;
                         case VALUE:
                             //noinspection ConstantConditions
-                            transaction.setValue(text);
+                            transaction.setValue(parseInt(text));
                             break;
                         case SENDER:
                             //noinspection ConstantConditions
@@ -87,5 +86,17 @@ public class TransactionParser {
                 }
             }
         }
+    }
+    public static int checkBalance(String accountNumber, List<Account> listOfAccounts)
+    {
+        int balance = 0;
+        for (Account n : listOfAccounts)
+        {
+            if (n.getAccountNumber().equals(accountNumber))
+            {
+                balance = n.getValue();
+            }
+        }
+        return balance;
     }
 }
