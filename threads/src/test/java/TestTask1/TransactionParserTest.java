@@ -1,7 +1,7 @@
-package TestTask1.sync;
+package TestTask1;
 
 import lombok.SneakyThrows;
-import task1.sync.*;
+import task1.*;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
@@ -9,9 +9,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static task1.sync.ParsingAndMethods.checkBalance;
-import static task1.sync.ParsingAndMethods.process;
-import static task1.sync.ParsingAndMethods.transactionSelector;
+import static task1.ParsingAndMethods.checkBalance;
+import static task1.ParsingAndMethods.process;
+import static task1.ParsingAndMethods.transactionSelector;
 
 
 public class TransactionParserTest {

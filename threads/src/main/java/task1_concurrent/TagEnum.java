@@ -1,10 +1,10 @@
-package task1.sync;
+package task1_concurrent;
 
 
-enum TagNames {
+enum TagEnum {
     TRANSACTIONS, TRANSACTION, DATE, VALUE, SENDER, RECEIVER, STATE;
 
-    public static TagNames getTagName(String element)
+    public static TagEnum getTagEnum(String element)
     {
         switch(element)
         {
@@ -23,8 +23,7 @@ enum TagNames {
             case "state":
                 return STATE;
             default:
-                throw new EnumConstantNotPresentException(TagNames.class, element);
+                throw new EnumConstantNotPresentException(TagEnum.class, element);
         }
     }
 }
-

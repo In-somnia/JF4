@@ -1,4 +1,4 @@
-package task1.sync;
+package task1;
 
 
 import javax.xml.stream.XMLStreamException;
