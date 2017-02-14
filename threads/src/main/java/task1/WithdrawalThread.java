@@ -14,7 +14,10 @@ public class WithdrawalThread implements Runnable {
     {
         for(Transaction tr : account.getOutTransactions())
         {
-            account.withdraw(tr.getValue());
+            synchronized (account)
+            {
+                account.withdraw(tr.getValue());
+            }
         }
     }
 }

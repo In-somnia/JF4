@@ -14,7 +14,10 @@ public class DepositThread implements Runnable{
     {
         for(Transaction tr : account.getInTransactions())
         {
-            account.deposit(tr.getValue());
+            synchronized (account)
+            {
+                account.deposit(tr.getValue());
+            }
         }
     }
 }

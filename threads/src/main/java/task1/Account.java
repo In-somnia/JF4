@@ -18,7 +18,7 @@ public class Account {
         this.accountNumber = accountNumber;
         this.value = value;
     }
-    synchronized void deposit(int amount)
+    void deposit(int amount)
     {
         this.value += amount;
         try{
@@ -29,7 +29,7 @@ public class Account {
         }
         this.setValue(value);
     }
-    synchronized void withdraw(int amount)
+    void withdraw(int amount)
     {
         this.value -= amount;
         try{
