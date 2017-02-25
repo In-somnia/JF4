@@ -27,6 +27,7 @@ public class ReadingThread implements Runnable{
                     System.out.print(getName() + ": ");
                     PropOpener.getValue(properties, "key3");
 
+
                 } catch (KeyIsMissingException e) {
                     e.printStackTrace();
                 }
