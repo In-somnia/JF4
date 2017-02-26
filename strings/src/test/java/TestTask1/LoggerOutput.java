@@ -1,7 +1,7 @@
 package TestTask1;
 
-import task1.*;
 import task1.AuxiliaryClass;
+import task1.CrazyLogger;
 
 
 public class LoggerOutput {

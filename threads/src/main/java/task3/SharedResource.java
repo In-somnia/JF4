@@ -8,6 +8,7 @@ import java.util.List;
 public class SharedResource {
     private List<Integer> list;
 
+
     public SharedResource() {
         list = new ArrayList<>();
     }

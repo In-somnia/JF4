@@ -3,7 +3,8 @@ package TestTask1;
 
 import java.io.*;
 import java.nio.file.*;
-import task1.*;
+
+import task1.FileWatcherMethods;
 
 public class FileWatcherApplication {
     public static void main(String[] args) {

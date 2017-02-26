@@ -5,7 +5,8 @@ include 'intro',
         'strings',
         'io',
         'exceptions',
-        'threads'
+        'threads',
+        'jdbc'
 
 
 
