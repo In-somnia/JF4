@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.my-library.com/bookcase"
+        xmlns:book-info="http://www.my-library.com/books"
+        xmlns:tns="http://www.my-library.com/bookcase"
+        attributeFormDefault="qualified">
+
+    <element name="bookcase" type="tns:bookcase"/>
+    <complexType name="bookcase">
+        <sequence>
+            <element name="bookShelf" type="tns:bookShelf" maxOccurs="5"/>
+        </sequence>
+    </complexType>
+    <complexType name="bookShelf">
+        <sequence>
+            <element name="book" type="book-info:Book" maxOccurs="25"/>
+        </sequence>
+        <attribute name="id" type="ID" use="required"/>
+    </complexType>
+    <complexType name="Book">
+        <sequence>
+            <element name="title" type="book-info:title"/>
+            <element name="author" type="string"/>
+            <element name="country" type="book-info:country"/>
+            <element name="year" type="gYear"/>
+        </sequence>
+    </complexType>
+    <simpleType name="title">
+        <restriction base="string">
+            <pattern value="(([A-Za-z][\s.])?[A-Za-z])+"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="country">
+        <restriction base="string">
+            <enumeration value="Poland"/>
+            <enumeration value="UK"/>
+            <enumeration value="US"/>
+            <enumeration value="Austria"/>
+            <enumeration value="Brazil"/>
+        </restriction>
+    </simpleType>
+</schema>
