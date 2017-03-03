@@ -1,52 +1,51 @@
 <?xml version="1.1" encoding="UTF-8"?>
-    <bookcase xmlns="http://www.my-library.com/bookcase"
-        xmlns:book-info="http://www.my-library.com/books"
+    <bookcase xmlns="http://www.my-library.com/books"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.my-library.com/books books.xsd">
         <bookShelf id="1">
-            <book-info:book>
+            <book>
                 <title>Good Omens</title>
                 <author>Terry Pratchett, Neil Gaiman</author>
                 <country>UK</country>
                 <year>2011</year>
-            </book-info:book>
-            <book-info:book>
+            </book>
+            <book>
                 <title>The Witcher</title>
                 <author>Andrzej Sapkowski</author>
                 <country>Poland</country>
                 <year>1986</year>
-            </book-info:book>
-            <book-info:book>
+            </book>
+            <book>
                 <title>The Teachings of Don Juan</title>
                 <author>Carlos Castaneda</author>
                 <country>US</country>
                 <year>1968</year>
-            </book-info:book>
-            <book-info:book>
+            </book>
+            <book>
                 <title>The Lord of The Rings</title>
                 <author>J. R. R. Tolkien</author>
                 <country>UK</country>
                 <year>1954</year>
-            </book-info:book>
-            <book-info:book>
+            </book>
+            <book>
                 <title>Pygmalion</title>
                 <author>Bernard Shaw</author>
                 <country>Austria</country>
                 <year>1912</year>
-            </book-info:book>
+            </book>
         </bookShelf>
         <bookShelf id="2">
-            <book-info:book>
+            <book>
                 <title>Veronika Decides to Die</title>
                 <author>Paulo Coelho</author>
                 <country>Brazil</country>
                 <year>1998</year>
-            </book-info:book>
-            <book-info:book>
+            </book>
+            <book>
                 <title>Harry Potter and The Sorcerer's Stone</title>
                 <author>J. K. Rowling</author>
                 <country>UK</country>
                 <year>1997</year>
-            </book-info:book>
+            </book>
         </bookShelf>
     </bookcase>
