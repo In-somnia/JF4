@@ -8,9 +8,6 @@ import java.util.Collection;
 
 import static org.junit.Assert.*;
 
-
-
-
 @RunWith(Parameterized.class)
 public class CountFactorialTest {
 

@@ -1,3 +1,5 @@
+import static java.lang.Math.round;
+
 public class Calculation {
 
     public int countFactorial(int a) throws ArithmeticException {
@@ -12,5 +14,21 @@ public class Calculation {
             }
         }
         return fact;
+    }
+
+    public int multiplyNumbers(int a, int b) {
+        int result = a * b;
+        return result;
+    }
+
+    public int divideNumbers(int a, int b) throws ArithmeticException {
+        int result = 0;
+
+        try {
+        result = round(a / b);
+        } catch (ArithmeticException e) {
+            e.getMessage();
+        }
+       return result;
     }
 }
