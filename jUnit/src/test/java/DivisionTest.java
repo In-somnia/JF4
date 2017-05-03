@@ -50,5 +50,4 @@ public class DivisionTest {
         int result = calculation.divideNumbers(first, second);
         assertTrue(result == 0);
     }
-
 }
